@@ -15,7 +15,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: configure
       run: autoscan && ln -T configure.scan configure.ac && autoconf && ./configure
-    - name: make
+    - name: make || cat configure.scan
       run: make
     - name: make check
       run: make check
