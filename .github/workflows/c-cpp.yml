@@ -13,6 +13,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: fulfill
+      run: sudo apt-get install g++-11
     - name: configure
       run: aclocal && automake --add-missing && autoreconf && ./configure
     - name: make
