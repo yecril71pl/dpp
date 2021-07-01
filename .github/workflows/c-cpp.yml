@@ -23,7 +23,7 @@ jobs:
     - name: fulfil
       run: sudo apt-get install g++-11 && cd emsdk && ./emsdk install latest && ./emsdk activate latest
     - name: configure
-      run: source emsdk/emsdk_env.sh && aclocal && automake --add-missing && autoreconf --build=x86_64-emscripten-nodejs && ./configure CXX=em++
+      run: source emsdk/emsdk_env.sh && aclocal && automake --add-missing && autoconf --build=x86_64-emscripten-nodejs && ./configure CXX=em++
       continue-on-error: true
     - name: Upload Configure Log
       uses: actions/upload-artifact@v2.2.4
