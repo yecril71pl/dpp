@@ -39,8 +39,8 @@ jobs:
         # A file, directory or wildcard pattern that describes what to upload
         path: 'config.log'
     - name: make
-      run: emmake
+      run: source emsdk/emsdk_env.sh && emmake make
     - name: make check
-      run: emmake check
+      run: source emsdk/emsdk_env.sh && emmake make check
     - name: make distcheck
-      run: emmake distcheck DISTCHECK_CONFIGURE_FLAGS='CXX=g++-11'
+      run: source emsdk/emsdk_env.sh && emmake make distcheck DISTCHECK_CONFIGURE_FLAGS='CXX=g++-11'
