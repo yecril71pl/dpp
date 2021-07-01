@@ -27,7 +27,9 @@ jobs:
         source emsdk/emsdk_env.sh &&
         aclocal &&
         automake --add-missing &&
-        autoreconf && ./configure --build=wasm32-unknown-emscripten CXX=em++
+        autoreconf &&
+        emconfigure ./configure &&
+        ./configure
       continue-on-error: true
     - name: Upload Configure Log
       uses: actions/upload-artifact@v2.2.4
@@ -37,8 +39,8 @@ jobs:
         # A file, directory or wildcard pattern that describes what to upload
         path: 'config.log'
     - name: make
-      run: make
+      run: emmake
     - name: make check
-      run: make check
+      run: emmake check
     - name: make distcheck
-      run: make distcheck DISTCHECK_CONFIGURE_FLAGS='CXX=g++-11'
+      run: emmake distcheck DISTCHECK_CONFIGURE_FLAGS='CXX=g++-11'
