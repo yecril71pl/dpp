@@ -24,6 +24,7 @@ jobs:
       run: sudo apt-get install g++-11 && cd emsdk && ./emsdk install latest && ./emsdk activate latest
     - name: configure
       run: source emsdk/emsdk_env.sh && aclocal && automake --add-missing && autoreconf && ./configure CXX=em++
+      continue-on-error: true
     - name: Upload Configure Log
       uses: actions/upload-artifact@v2.2.4
       with:
