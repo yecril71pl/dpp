@@ -3,3 +3,4 @@ bin_PROGRAMS = mandelbrot smallpt
 mandelbrot_SOURCES = mandelbrot.cpp
 smallpt_SOURCES =  smallpt.cpp
 include_HEADERS = dpp.hpp
+TESTS = mandelbrot
