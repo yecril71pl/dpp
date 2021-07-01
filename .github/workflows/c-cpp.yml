@@ -29,7 +29,7 @@ jobs:
         automake --add-missing &&
         autoreconf &&
         emconfigure ./configure &&
-        ./configure
+        ./configure CXX=em++
       continue-on-error: true
     - name: Upload Configure Log
       uses: actions/upload-artifact@v2.2.4
